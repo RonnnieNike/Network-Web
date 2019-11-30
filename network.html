@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+    <title>Network</title>
+    <meta charset="UTF-8">
+    <script src="newnetwork.js"></script>
+    <link href="newnetwork.css" rel="stylesheet" id="night">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+</head>
+
+<body class="backgroundtextpage">
+    <button class="nightday" onclick="changelight()" id="nightday"><i class="fas fa-adjust" title="night/day" ></i></button>
+    <button onclick="showmenu()" class="menubutton"><i class="fas fa-ellipsis-h"title="menu"></i> </button>
+
+    <div onclick="hidemenu()" class="menuholder" id="menuholder">
+
+        <ul class="menu">
+            <li class="menuli"> <a href="globalnetwork.html">Global Network </a></li>
+            <li class="menuli"> <a href="phisical.html">Phisical </a></li>
+            <li class="menuli"> <a href="datalink.html">Data Link </a></li>
+            <li class="menuli"> <a href="network.html">Network </a></li>
+            <li class="menuli"> <a href="transport.html">Transport </a></li>
+            <li class="menuli"> <a href="session.html">Session </a></li>
+            <li class="menuli"> <a href="presentation.html">Presentation </a></li>
+            <li class="menuli"> <a href="application.html">Application </a></li>
+        </ul>
+
+    </div>
+
+    <header>
+
+         <ul class="navbar">
+            <li class="navbarlihome">
+               <a href="newnetwork.html"title="Home" > <i class="fas fa-home"></i> </a>
+               
+            </li >
+            <li class="navbarli">
+               <a href="test.html"title="Test" > <i class="fas fa-graduation-cap"></i> </a>
+            </li>
+            <li class="navbarli">
+               <a href="info.html"title="info" > <i class="fas fa-info"></i> </a>
+            </li>
+            <li class="navbarli">
+               <a href="idea"> <i class="far fa-lightbulb"></i> </a>
+            </li>
+         </ul>
+    </header>
+
+    <h3 class="titletextpage">Network</h3>
+
+    <p class="Text">
+
+        <br>Network Layer:
+        The internet or network or network layer is an abstraction layer supported by the IP (Internet Protocol) network protocol.
+        <br>Ip is a network protocol that serves to connect the network. It is a packet protocol without a best-effort connection, therefore it does not guarantee reliability in terms of error control, flow control and congestion, made possible however by other protocols such as TCP and UDP or ICMP.
+        ICMP communicates error or control messages. It is at the IP level and can also carry messages or requests and answers to requests, they are transmitted through IP datagrams
+        <br>The PING command performs a reachability test by sending an ICMP echo request message to a host waiting for a reply, if the host does not respond, cannot be reached, then it is used to identify errors or network failures.
+        It therefore serves as a glue for the various sub-networks at routing addressing level, allowing the exchange of information between them, therefore an interworking.
+        Thus within an IP network, each interface is assigned a unique address, and can be calculated manually or by protocols such as DHCP or PPP.
+        <br>This address is characterized by a subnetmask that allows to calculate if another IP address belongs to the same subnet or not.
+        <br>IP PACKAGE
+        <br>the most important fields are:
+        <br>HEADER LENGHT<br>TOTAL LENGHT<br>PROTOCOL NUMBER<br>TIME TO LIVE<br>INDENTIFICATION<br>FRAGMENT OFFSET<br>HEADER CHECKSUM, SOURCE IP ADRESS<br>DESTINATION IP ADRESS<br>PADDING<br>DATA
+        Each network has a maximum size allowed, the MTU, if the network that I have to cross has mtu smaller than my package I have to fragment it.
+        We try to avoid this because fragmentation is harmful because we lose a fragment and we lose the whole package. The CECKSUM checks that all the octets of the package have arrived at their destination, then checks the integrity of the message.
+
+    </p>
+
+    <p class="arrowright">
+        <a href="Transport.html"title="Next Page" > <i class="fas fa-angle-right"></i> </a>
+    </p>
+
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+
+@font-face {
+    font-family: sitefont1;
+    src: url(BOOKOS.TTF);
+}
+
+@font-face {
+    font-family: sitefont2;
+    src: url(FREESCPT.TTF);
+}
+
+@font-face {
+    font-family: sitefont3;
+    src: url(consola.ttf);
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+h1 {
+    font-size: 7vw;
+    text-align: center;
+    margin: 0px 0px;
+    font-family: sitefont1;
+    color: white;
+    line-height: 100px;
+}
+
+h2,
+.titletextpage {
+    font-size: 5vw;
+    text-align: center;
+    margin: 0px 0px;
+    font-family: sitefont2;
+    color: #598699;
+    line-height:40px;
+    margin-left: 14vw;
+}
+
+h3 {
+    font-size: 2vw;
+    text-align: center;
+    margin: 0px 0px;
+    font-family: sitefont3;
+    color: #7b797c;
+    line-height: 30px;
+}
+
+h4{
+    font-size: 3vw;
+    text-align: left;
+    margin: 0px 0px;
+    font-family: sitefont2;
+    color: #598699;
+    margin-left: 16vw;
+}
+
+
+body {
+    color: white;
+    font-family: sitefont1;
+    background-image: url("sitox.png");
+    background-position: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+    background-size: cover;
+    margin: 0px;
+}
+
+.titlehome {
+    padding: 160px 0px;
+    text-align: center;
+}
+
+.titletextpage {
+    margin: 0;
+    line-height:15px;
+    padding: 30px;
+}
+
+.Text {
+    text-align: justify;
+    font-size: 20px;
+    padding: 10px 250px;
+    
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.backgroundtextpage{
+
+                    background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("sitox.png");
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.menubutton {
+    z-index: 2;
+    position: fixed;
+    top: 1vh;
+    left: 1vw;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    background: transparent;
+    color: white;
+    font-size: 25px;
+}
+
+
+.menuholder {
+    z-index: 4;
+    width: 20%;
+    background: transparent;
+    position: fixed;
+    height: 100vh;
+    left: -100%;
+    top: 0;
+    transition: left .42s;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 5px;
+    background: transparent;
+    margin: 50px auto;
+}
+
+.menuli {
+    font-family: sitefont2;
+    background: #00060ce8;
+    width: 60%;
+    padding: 15px 0;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.menuli a {
+    display: inline-block;
+    color:#96d4ea;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.menuli a:hover {
+    color: white;
+     font-size: 45px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.nightday {
+    z-index: 2;
+    position: fixed;
+    top: 1vh;
+    right: 1vw;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    background: transparent;
+    color: white;
+    font-size: 25px;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+.navbar {
+    list-style-type: none;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbarli {}
+
+.navbarlihome a {
+    display: inline-block;
+    color:white;
+    text-align: center;
+    padding: 35px;
+    text-decoration: none;
+    font-size: 40px;
+}
+.navbarlihome a:hover {
+    color: #578699;
+    font-size: 45px;
+}
+.navbarli a{
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+    padding: 50px;
+    text-decoration: none;
+    font-size: 30px;
+
+}
+
+.navbarli a:hover {
+    color: white;
+    font-size: 35px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.arrow {
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 5vw;
+    transition: bottom 0.23s;
+}
+
+.arrow a,
+.arrowright a {
+    color: white;
+    outline: none;
+}
+
+.arrow:hover {
+    animation: jumping 1s infinite;
+
+}
+
+.arrowright {
+    position: fixed;
+    right: 2px;
+    top: 50vh;
+    font-size: 8vh;
+}
+
+.arrowright:hover {
+    animation: jumpingr 1s infinite;
+   
+}
+
+@keyframes jumping {
+    0% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 10px;
+        
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes jumpingr {
+    0% {
+        right: 2px;
+    }
+    50% {
+        right: 9px;
+    }
+    100% {
+        right: 2px;
+    }
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+footer {
+    position: unset;
+    text-align: center;
+    bottom: 0px;
+    right: 45%;
+}
+
+
+/*-----test answer question next--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.questionstyle{
+    padding: 30px;
+    font-size: 2em;
+    text-align: center;
+}
+
+ul.answersstyle{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+.answersstyle{
+    
+    margin:0 10px;
+    padding: 50px;
+    font-size: 24px;
+}
+
+.answersstyle li{
+    
+    margin: 0 30px;
+}
+
+
+.next{
+
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 5vw;
+    color: #bd3333;
+}
+
+
+/*cambio dimensioni*/
+
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 3vw;
+        padding: 0;
+    }
+    h1 {
+        line-height: 3vw;
+    }
+    .titlehome {
+        transform: scale(2);
+        padding: 25px;
+    }
+    .Text {
+        padding: 0 50px;
+    }
+    .titletextpage {
+        font-size: 30px;
+    }
+    
+    
+     .navbar li{
+
+    }
+    .navbarli a {
+        font-size: 6vw;
+        padding: 4vw;
+    }
+    .navbarlihome a{
+        font-size: 25px;
+        padding: 20px;
+     }
+    
+    ul.navbar{
+        padding: 15%;
+    }
+    ul {
+        width: 70%;
+    }
+    .menuli {
+        width: 100%;
+    }
+    .menuholder {
+        width: 100%;
+        background: #000000ed;
+    }
+}

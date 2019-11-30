@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+    <title>Data Link</title>
+    <meta charset="UTF-8">
+    <script src="newnetwork.js"></script>
+    <link href="newnetwork.css" rel="stylesheet" id="night">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+</head>
+
+<body class="backgroundtextpage">
+    <button class="nightday" onclick="changelight()" id="nightday"><i class="fas fa-adjust" title="night/day" ></i></button>
+    <button onclick="showmenu()" class="menubutton"><i class="fas fa-ellipsis-h"title="menu"></i> </button>
+
+    <div onclick="hidemenu()" class="menuholder" id="menuholder">
+
+        <ul class="menu">
+            <li class="menuli"> <a href="globalnetwork.html">Global Network </a></li>
+            <li class="menuli"> <a href="phisical.html">Phisical </a></li>
+            <li class="menuli"> <a href="datalink.html">Data Link </a></li>
+            <li class="menuli"> <a href="network.html">Network </a></li>
+            <li class="menuli"> <a href="transport.html">Transport </a></li>
+            <li class="menuli"> <a href="session.html">Session </a></li>
+            <li class="menuli"> <a href="presentation.html">Presentation </a></li>
+            <li class="menuli"> <a href="application.html">Application </a></li>
+        </ul>
+
+    </div>
+
+    <header>
+
+         <ul class="navbar">
+            <li class="navbarlihome">
+               <a href="newnetwork.html"title="Home" > <i class="fas fa-home"></i> </a>
+               
+            </li >
+            <li class="navbarli">
+               <a href="test.html"title="Test" > <i class="fas fa-graduation-cap"></i> </a>
+            </li>
+            <li class="navbarli">
+               <a href="info.html"title="info" > <i class="fas fa-info"></i> </a>
+            </li>
+            <li class="navbarli">
+               <a href="idea"> <i class="far fa-lightbulb"></i> </a>
+            </li>
+         </ul>
+
+        <h3 class="titletextpage">Data Link</h3>
+
+        <p class="Text">
+
+            Il livello 2 si occupa di gestire il collegamento da un pc all'altro appartenenti alla stessa LAN (Local Area Network) o sottorete, è un sistema di comunicazione che permette ad apparecchiature indipendenti di comunicare tra loro, entro un’area delimitata, utilizzando un canale fisico a velocita' elevata e con basso tasso d’errore. 
+            Altra funzione principale di questo livello è quella di recuperare gli errori trasmissivi: di solito questo avviene mediante tecniche di ritrasmissione automatica dei dati che sono stati ricevuti corrotti.
+
+            <br> Identificare i nodi connessi
+            <br> Le interfacce di rete NIC (Network Interface Controller, anche Network Interface Card) dispongono di un numero cablato (di 48 bit) detto MAC address, non modificabile, univoco in 
+            <br>tutto il mondo, viene impiegato per identificare le entita'. 
+            <br>I primi tre ottetti indicano il produttore Serve a rendere indipendente l’indirizzo IP dall’hardware: se cambio il server l’IP resta lo stesso.
+
+            <br>Controllare gli errori
+            <br>Aggiunge al pacchetto proveniente dal livello ISO/OSI superiore (il livello network) una sequenza di bit (checksum) che e' usata in ricezione per valutare la corretta trasmissione del pacchetto. 
+            <br>Se il "checksum calcolato" è diverso dal "checksum ricevuto" il destinatario individua un errore.
+
+            Data Framing
+            Il secondo livello forma dei pacchetti dati, detti frame da far viaggiare lungo la dorsale di comunicazione. 
+            Il livello Data Link incapsula il pacchetto proveniente dall livello IP in un nuovo pacchetto detto frame al quale aggiunge un header (intestazione) e un tail (coda). 
+
+            Preamble (7 ottetti): sequenza di 7 ottetti (10101010) SFD (1 ottetto): start of frame delimiter (1 ottetto 10101011) DA+SA (6+6 ottetti): destination e source address Length/Type (2 ottetti): lunghezza o tipo (lunghezza max 1518 ottetti) I di Ethernet esistono diverse versioni, che si differenziano in base alla funzione attribuita a questo campo Pad: per avere pacchetti sempre superiori alla lunghezza minima per rendere possibile la Collision Detection FCS: checksum di controllo
+
+            Il frame ha una struttura più semplice di quella del pacchetto IP, ed è chiara la sua relazione con un dispositivo con poca memoria.
+            Il frame si apre con una lunga sequenza che alterna livelli 1 e livelli 0.
+            Poi vengono indicati i due indirizzi MAC relativi al mittente e al destinatario.
+            Viene anche speciﬁcato il tipo di payload (nel nostro caso IP) Dopo il payload (lungo al massimo 1500 ottetti) c’è un trailer con la checksum dell’intero frame, ed un periodo di silenzio di lunghezza determinata.
+
+            Per giustiﬁcare il formato del frame consideriamo i due sistemi utilizzati per gestire un frame in uno switch.
+            I Store and forward: il pacchetto viene registrato per intero nella memoria dello switch, e poi viene inoltrato verso la destinazione.
+             I Cut-through: il pacchetto inizia ad essere inoltrato appena ne è nota la destinazione.
+             Il sistema cut-through è più vantaggioso dal punto di vista del tempo di trattamento del frame, e della memoria necessaria nello switch.
+            Per questo è opportuno un formato che presenti prima gli indirizzi Per la stessa ragione è opportuno che la checksum sia registrata nel trailer.
+
+            Anche il protocollo ARP che permette di conoscere l'indirizzo fisico di una scheda di rete corrispondente ad un indirizzo IP, appartiene a questo livello.
+            Il protocollo ARP, che non è speciﬁco per Ethernet, funziona così:
+             1 Spedizione dell’indirizzo da risolvere (IP) all’indirizzo MAC di broadcast.
+            2 Risposta da parte del dispositivo con l’IP corrispondente.
+            3 Registrazione in una cache dove restano per un breve periodo, ad evitare di essere continuamente richiesti.
+            Correggere gli errori mediante ritrasmissione
+            I pacchetti inviati sono tutti numerati. 
+            Per ogni pacchetto ricevuto, il destinatario invia al mittente un segnale di ACK (acknowledgement, conferma) contenente lo stato della trasmissione (positivo o negativo) e il numero del pacchetto associato. 
+            Il mittente deve ripetere l'invio dei pacchetti in corrispondenza dei quali non ha ricevuto il segnale di Acknowledge in un intervallo di tempo prestabilito. 
+            L'ACK puo' essere trasmesso con un messaggio a sé stante, o in un campo all'interno di un pacchetto utente che viaggia in direzione opposta (questa modalità prende il nome di piggyback). Puo' capitare che, per via dei rinvii dovuti a ritardi nella ricezione dell'ACK, il destinatario riceva lo stesso pacchetto più volte: in questo caso le copie del pacchetto verranno scartate. 
+            Controllare il flusso
+            Ovvero sincronizzare il dispositivo fisico piu' veloce portandolo alla velocita' di quello piu' lento.
+             In questo modo si evita che un mittente troppo veloce tenda a trasmettere pacchetti in quantita' superiore a quella supportata dal ricevente, evitando che quest'ultimo risulti completamente sopraffatto dal sovraccarico di lavoro (buffer over flow). 
+            Multiplazione
+            Nelle reti la connessione fisica tra due elaboratori (linee bifiliari, collegamenti in fibra ottica, collegamenti radio ecc...) deve essere utilizzata in modo tale che piu' applicazioni possono contemporaneamente trasmettere informazioni sullo stesso canale : si pone quindi il problema di sfruttare la capacità del mezzo a disposizione per ottenere piu' canali di livello fisico (o logico) sullo stesso mezzo trasmissivo.
+            Accesso condiviso al canale MAC (Medium Access Control)
+            Disciplina l'accesso multiplo di piu' nodi ad un canale di comunicazione condiviso (multiplazione) evitando o gestendo l'occorrenza di collisioni. 
+
+            Ethernet
+            Ethernet è il tipo più diffuso di rete locale che esista al mondo.
+            Ethernet usa un solo cavo per collegare decine di stazioni di lavoro, ciascuna delle quali riceve contemporaneamente tutto quel che passa sulla rete, mentre solo una stazione alla volta ha la facoltà di trasmettere. Ogni stazione è indipendente e non esiste una singola entità che funzioni da arbitro.
+            Una rete Ethernet viene ad essere condivisa tra molti utenti, ciascuno con il suo indirizzo MAC e IP.
+            Esistono molti modi per organizzare la condivisione della risorsa, quello di Ethernet si basa(va) su una modalità detta CSMA-CD dove il nodo che deve spedire un pacchetto lo invia, ma controlla che la linea non sia allo stesso momento disturbata da un’altra trasmissione.  Se questo accade il pacchetto viene rispedito dopo un intervallo casuale, che si allunga progressivamente (exponential back-off).
+
+            Ethernet gestione collisioni
+            Si parla di collision domain per un insieme di utenti incompatibili.
+             Incompatibili signiﬁca che non ci può essere contemporaneamente comunicazione tra due coppie di utenti nel dominio di collisione I Ad es.: se {A, B, C, D} è un dominio di collisione, se A sta comunicando con B allora C non può comunicare con D (e viceversa).
+            Dispositivo hub (antiquato), collision domain unico, solo una trasmissione alla volta. 
+            Dispositivo switch, full-duplex utilizzando hardware più veloce delle interfacce (da Gigabit Ethernet).
+            Uno switch dispone di veri buchi in cui si innestano dei veri cavi I buchi si chiamano, con poca fantasia, porte.
+            Uno switch deve conoscere l’indirizzo MAC del nodo collegato all’altra estremità del cavo collegato ad una delle sue porte. 
+            La corrispondenza non viene impostata dall’amministratore, ma con un semplice protocollo.
+            Si parla di apprendimento della corrispondenza MAC-porta analizzando i frame in ingresso. 
+            Il protocollo non prevede messaggi speciﬁci, ma si basa sull’osservazione del trafﬁco.
+            Se su una porta ricevo un frame con un certo MAC mittente, quello è il MAC del dispositivo agganciato a quella porta. Se si riceve un frame per il quale non si conosce la porta corrispondente al destinatario, viene spedito su tutte le porte.
+            Così uno switch non deve essere conﬁgurato manualmente: plug and play.
+
+            Loop
+            Una rete può essere collegata a più di uno switch (affidabilità) La topologia non è un albero, e possono esserci cicli.
+            I frame possono restare intrappolati, e percorrere indeﬁnitamente il ciclo (non c’è TTL).
+            Se non è nota la porta corrispondente ad un certo host (silenzioso), un frame per quell’host gira ﬁntantoché non è lui a spedirne uno. È necessario interrompere i cicli, per fare in modo che il meccanismo di learning funzioni in modo ottimale.
+            Per questo si introduce un algoritmo speciﬁco per calcolare uno spanning tree (o albero di copertura) L’algoritmo si basa sullo scambio periodico di informazioni tra gli switch, le Bridge Protocol Data Units.
+            La BPDU è un dato complesso che contiene, tra l’altro:
+             l’identiﬁcatore del mittente (ogni switch ha un proprio identiﬁcatore), la radice dell’albero, un’indicazione della distanza del mittente dalla radice.
+            La distanza si ottiene aggiungendo il costo del link alla distanza dell’origine del link dalla radice.
+            Ogni switch invia una BPDU ogni 2 secondi ad un indirizzo MAC speciale su tutte le porte.
+
+            Spanning tree
+            Ogni switch esegue lo stesso algoritmo:
+            1.   Si identifica la radice dell’albero: che è lo switch con l’identificatore minimo, All’accensione uno switch ritiene di essere la radice se trova una BPDU con l’indicazione di una radice con id inferiore, la acquisisce come radice.
+            2.  Identificazione della porta root di ogni switch: ogni switch deve capire chi è il proprio padre, che è la porta su cui è collegato lo switch, e viene chiamata ROOT porta radice, viene rilevata con le distanze ricevute dai vicini.
+            3.  Identificazione porte designate o abilitate: quindi il vicino imposta quella porta come porta designata che viene utilizzata per la diffusione di informazione, e quelle che non sono segnalate designate vengono disattivate.
+            Ci sono diverse varianti dell’algoritmo, soprattutto per migliorarne la risposta in momenti critici, quindi guasti o modifiche di switch.
+
+            Wifi
+            Il WIFI è un protocollo link noto come 802.11 e si differenzia da un protocollo cablato perché funziona senza cavi ma con trasmissione elettro magnetica.
+            Riproduce un’astrazione simile ad una rete locale costruita con ethernet.
+            Esistono due diverse modalità di funzionamento per una sottorete, che in questo caso si chiama (Basic Service Set) BSS.
+            1.  Definita AD HOC in cui tutti i nodi partecipano allo stesso livello, il suo limite e che non avendo un componente controllo deve auto-organizzarsi.
+            2.  La seconda è infrastructure e prevede una componente controllo che è l access point, e costruisce l’infrastruttura di comunicazione, e dal punto di vista astratto è simile allo switch e serve per offrire connettiva e coordinazione a tutti gli altri noti appartenenti allo stesso BSS. Tutti i nodi comunicano solo con l access point.
+            Quando un nodo wireless si accende cerca un AP per connettersi ed avere accesso al internet locale, cosi il nuovo nodo entra a far parte dell’infrastruttura.
+            Gli AP hanno un identificatore che è SSID che può essere trasmesso periodicamente con dei frame che si chiamano BEACON.
+            Il collegamento ad un AP si chiama associazione e richiede l’autentificazione del nodo che si vuole associare.
+            Quando si conclude l AP assegna al nodo un indirizzo IP. È paragonabile ad una sottorete ethernet.
+            Le collisioni in ethernet avvenivano quando due nodi contemporaneamente cercavano di accedere alla rete che non consentiva la trasmissione contemporanea, e per risolverlo chi spediva controllava se c erano altre collisioni CSMA-CD.
+            In una stazione Wi-Fi che è un trasmettitore e ricevitore di onde elettromagnetiche, nel momento della trasmissione il ricevitore è impedito da fare qualsiasi ricezione da altri nodi, quindi il ricevitore è assordato dalla trasmissione e quindi non si rilevano collisioni.
+            La transizione tra trasmissione e ricezione, non è istantanea, nel momento in cui smetto di trasmettere e avvio la ricezione passa un lasso di tempo che è SIFS.
+
+            Algoritmo Collision Avoidance
+            Prima di avviare la trasmissione la stazione controlla la presenza di un’altra trasmissione durante un intervallo DIFS (maggiore di SIFS) I se la linea resta libera avvia la trasmissione, se la linea viene occupata entra subito in un exponential back-off, per evitare che tutti quelli che sono in attesa entrino in collisione. Al termine il ricevente attende SIFS, e spedisce un ACK.
+            Se chi ha spedito non riceve l’ACK, rispedisce il frame Importante: i diversi valori di DIFS e SIFS determinano una priorità. Il messaggio di ACK ha priorità superiore alla spedizione di un frame generico ed è fondamentale la sincronizzazione dei clock.
+
+            Terminale Nascosto
+            Il problema del terminale nascosto si presenta nel caso frequente in cui due clienti associati allo stesso AP non ricevono l’uno il segnale dell’altro Infatti, che il segnale di un cliente raggiunga l’AP non implica che raggiunga tutti gli altri nodi.
+            Quindi uno dei due clienti che non si ricevono (reciprocamente) può iniziare la trasmissione durante la trasmissione dell’altro La ﬁnestra di collisione si allarga all’intero frame Il problema è che la collisione perdura per tutto il tempo della trasmissione di ambedue i frame, degradando signiﬁcativamente le prestazioni della rete.
+             Si parla allora di problema del terminale nascosto.
+
+            Il protocollo RTS/CTS
+            Il protocollo RTS/CTS allevia questo problema facendo in modo che l’AP coordini gli accessi.
+            É basato su un brevissimo frame (RTS) inviato dalla stazione che ha intenzione di trasmettere.
+            La brevità del frame limita l’impatto di una eventuale collisione (sempre possibile) L’AP riceve il pacchetto RTS e, dopo SIFS (alta priorità), spedisce un altro brevissimo pacchetto CTS Il problema del terminale nascosto non esiste per il CTS: tutti ricevono l’AP Quindi tutti considerano la linea occupata, sino alla ricezione dell’ACK Il protocollo RTS/CTS viene applicato opzionalmente, e ha un impatto negativo sull’utilizzazione della rete.
+
+            Reti virtuali
+            In telecomunicazioni e informatica il termine VLAN (Virtual Local Area Network) indica un insieme di tecnologie che permettono di segmentare il dominio di broadcast, che si crea in una rete locale basata su switch, in più reti locali logicamente non comunicanti tra loro, ma che condividono globalmente la stessa infrastruttura fisica di rete locale. 
+            Le applicazioni di questa tecnologia sono tipicamente legate ad esigenze di separare il traffico di gruppi di lavoro o dipartimenti di un'azienda, per applicare diverse politiche di sicurezza informatica. 
+
+            La topologia cablata può essere diversa da quella organizzativa.
+            Se il cablaggio su tre piani diversi con 3 reti locali con funzionalità diverse. Questi stanno su 3 sottorete diverse e per motivi di sicurezza non si confondano con altre.
+
+            Ogni nodo può essere destinato a diverse esigenze, per ovviare il problema esiste l OVERLAY virtuale che rispetta le esigenze organizzative ed è sovrapposta alla rete.
+            Ad ogni interfaccia viene associata una LAN virtuale VLAN, che ha un identificatore di 12 bit 
+            Ad ogni porta dello switch viene associato un VLAN ID, quindi quella porta è associata a quella VLAN.
+            Per comunicare e comunicare la destinazione del pacchetto, il VLAN ID viene inserito nel pacchetto TAGGING.
+            Gli switch inoltrano i frame con un certo vlan id solo sulle porte corrispondenti.
+            Ogni VLAN ha il proprio SPANNING TREE per non incorrere a Loop di cicli.
+            Point to point
+            L’alternativa ad un collegamento su un supporto condiviso (come Ethernet) è il collegamento punto a punto. Utilizzando i collegamenti punto-punto è possibile anche connettere tra loro più sedi situate in due località geograficamente distanti fra loro.
+            A differenza dl ethernet che è in broadcast, la PPP che è quella che utilizziamo con l’adsl che è una comunicazione che dal nostro modem tramite un cavo porta connessione sulla centralina.
+            Il frame:
+            1.  Ha un trailer e inizia e si conclude con una sequenza di bit speciale in 7E esadecimale,
+            2.  Poi un byte solo che serve ad identificare il tipo di payload 
+            3.  E poi la checksum 
+
+            La possibilità che 7E sia nel payload rende ambigua la funzione del byte: payload o terminazione? Se 7E compare nel payload, un altro byte di escape (01111101, 7D in esadecimale) viene inserito (stuffed) prima di questo, per distinguerlo Se il byte di escape 7D compare nel payload, viene sempre raddoppiato inserendone un altro La tecnica si chiama del byte stufﬁng.
+
+            Parametri di un protocollo e di un link
+            overhead: rapporto percentuale tra la dimensione di header (e trailer) e la dimensione del pacchetto.
+            efﬁcienza: percentuale tra la dimensione del payload e la dimensione del pacchetto.
+            bitrate della linea: quanti bit vengono trasferiti in un secondo.
+            larghezza di banda: la differenza tra la massima e la minima frequenza che può passare attraverso una linea I in linea teorica corrisponde alla metà del bitrate (teorema di Nyquist).
+            throughput: prodotto tra l’efﬁcienza del protocollo e il bitrate della linea (ad es. 100 Megabit al secondo Mb/s)
+
+            Definire la connessione logica LLC (Logical Link Control)
+            L' LLC definisce e controlla il collegamento logico tra i nodi di una rete. Questo sottolivello fornisce i servizi al Network Layer che nascondono i dettagli dovuti alle diverse tecnologie fisiche utilizzate.
+
+
+        </p>
+
+        <p class="arrowright">
+            <a href="network.html"title="Next Page" > <i class="fas fa-angle-right"></i> </a>
+        </p>
+
+</body>
+
+</html>

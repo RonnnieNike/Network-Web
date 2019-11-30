@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+    <title>Test</title>
+    <meta charset="UTF-8">
+
+    <script src="newnetwork.js"></script>
+
+    <link href="newnetwork.css" rel="stylesheet" id="night">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+
+</head>
+
+<body class="backgroundtextpage">
+
+  
+
+    <button class="nightday" onclick="changelight()" id="nightday"><i class="fas fa-adjust" title="night/day" ></i></button>
+
+    <button onclick="showmenu()" class="menubutton"><i class="fas fa-ellipsis-h"title="menu"></i> </button>
+
+    <div onclick="hidemenu()" class="menuholder" id="menuholder">
+
+        <ul class="menu">
+            <li class="menuli"> <a href="globalnetwork.html">Global Network </a></li>
+            <li class="menuli"> <a href="phisical.html">Phisical </a></li>
+            <li class="menuli"> <a href="datalink.html">Data Link </a></li>
+            <li class="menuli"> <a href="network.html">Network </a></li>
+            <li class="menuli"> <a href="transport.html">Transport </a></li>
+            <li class="menuli"> <a href="session.html">Session </a></li>
+            <li class="menuli"> <a href="presentation.html">Presentation </a></li>
+            <li class="menuli"> <a href="application.html">Application </a></li>
+        </ul>
+
+    </div>
+
+    <header>
+
+         <ul class="navbar">
+            <li class="navbarlihome">
+               <a href="newnetwork.html" title="Home" > <i class="fas fa-home"></i> </a>
+               
+            </li >
+            <li class="navbarli">
+               <a href="test.html" title="Test" > <i class="fas fa-graduation-cap"></i> </a>
+            </li>
+            <li class="navbarli">
+               <a href="info.html" title="info"> <i class="fas fa-info"></i> </a>
+            </li>
+            <li class="navbarli">
+               <a href="idea"> <i class="far fa-lightbulb"></i> </a>
+            </li>
+         </ul>
+    </header>
+
+
+    <h2 class="titletextpage">Test</h2>
+
+
+    <p class="Text">
+
+    Here some questions for check you knowwdge about the subject.
+   
+    </p>
+
+    <script src="newnetworkquestion.js"></script>
+
+        <div id="exam">
+            <p id="question" class="questionstyle"></p>
+                <ul id="answers" class="answersstyle">
+                    <li> <input id="t"  type="radio" name="answer" value="1">true</li>
+                    <li> <input id="f"  type="radio" name="answer" value="0">false</li>
+                </ul>
+
+        <button onclick="nextQuestion()" id="next" class="next"><i class="fas fa-chevron-circle-right" title="Next Question"></i></button>
+            
+
+        </div>
+
+   
+</body>
+
+</html>
